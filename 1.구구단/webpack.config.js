@@ -1,0 +1,31 @@
+const path = require("path");
+module.exports = {
+  name: "gugudan-setting",
+  mode: "development", // 실서비스 : production
+  devtool: "eval", // 빠르게 하겠다.
+  entry: {
+    app: ["./client"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        options: {
+          presets: [
+            ["@babel/preset-env", { targets: { node: "current" } }],
+            "@babel/preset-react",
+          ],
+        },
+        exclude: path.join(__dirname, "node_modules"),
+      },
+    ],
+  },
+  output: {
+    filename: "app.js",
+    path: path.join(__dirname, "dist"),
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+};
