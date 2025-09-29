@@ -8,6 +8,8 @@ class WordRelay extends React.Component {
     result: "",
   };
 
+  input;
+
   onSubmit = (e) => {
     e.preventDefault();
     if (this.state.word[this.state.word.length - 1] === this.state.value[0]) {
